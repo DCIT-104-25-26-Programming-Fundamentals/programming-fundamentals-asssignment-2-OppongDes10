@@ -73,23 +73,6 @@
 #include <cmath>
 using namespace std;
 
-// =============================================================================
-// PROGRAMMING FUNDAMENTALS — Assignment 9
-// =============================================================================
-//
-// TASK: Console-Based Simple Calculator
-//
-// =============================================================================
-// YOUR CODE BELOW — scaffold filled in
-// =============================================================================
-
-#include <iostream>
-#include <iomanip>
-#include <cmath>
-#include <string>
-using namespace std;
-
-// Function for addition
 double addition(double a, double b) {
     return a + b;
 }
