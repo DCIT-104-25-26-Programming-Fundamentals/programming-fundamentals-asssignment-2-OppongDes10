@@ -50,4 +50,58 @@
 
 #include <iostream>
 using namespace std;
+void printFibonacciSequence(int n) {
+    if (n <= 0) {
+        cout << "Error: Number of terms must be positive." << endl;
+        return;
+    }
+    
+    cout << "Fibonacci sequence: ";
+    
+    int a = 0, b = 1, next;
+    
+    for (int i = 0; i < n; i++) {
+        cout << a << " ";
+        next = a + b;
+        a = b;
+        b = next;
+    }
+    cout << endl;
+}
 
+bool isFibonacciNumber(int num) {
+    if (num < 0) return false;
+    
+    int a = 0, b = 1, next;
+    
+    while (a < num) {
+        next = a + b;
+        a = b;
+        b = next;
+    }
+    
+    return (a == num);
+}
+
+int main() {
+    cout << "=== FIBONACCI SEQUENCE GENERATOR ===" << endl;
+    
+    cout << "\nPART A — Generate Fibonacci Sequence" << endl;
+    int n;
+    cout << "How many terms? ";
+    cin >> n;
+    printFibonacciSequence(n);
+
+    cout << "\nPART B — Check if a Number is Fibonacci" << endl;
+    int number;
+    cout << "Enter a number to check: ";
+    cin >> number;
+    
+    if (isFibonacciNumber(number)) {
+        cout << number << " is a Fibonacci number." << endl;
+    } else {
+        cout << number << " is NOT a Fibonacci number." << endl;
+    }
+    
+    return 0;
+}
