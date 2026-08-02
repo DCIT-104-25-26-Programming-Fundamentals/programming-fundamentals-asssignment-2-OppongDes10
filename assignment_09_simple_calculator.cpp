@@ -73,3 +73,143 @@
 #include <cmath>
 using namespace std;
 
+// =============================================================================
+// PROGRAMMING FUNDAMENTALS — Assignment 9
+// =============================================================================
+//
+// TASK: Console-Based Simple Calculator
+//
+// =============================================================================
+// YOUR CODE BELOW — scaffold filled in
+// =============================================================================
+
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+using namespace std;
+
+// Function for addition
+double addition(double a, double b) {
+    return a + b;
+}
+
+// Function for subtraction
+double subtraction(double a, double b) {
+    return a - b;
+}
+
+// Function for multiplication
+double multiplication(double a, double b) {
+    return a * b;
+}
+
+// Function for division (with zero check)
+double division(double a, double b) {
+    if (b == 0) {
+        cout << "Error: Cannot divide by zero." << endl;
+        return 0;
+    }
+    return a / b;
+}
+
+// Function for modulus
+int modulus(int a, int b) {
+    if (b == 0) {
+        cout << "Error: Cannot divide by zero." << endl;
+        return 0;
+    }
+    return a % b;
+}
+
+// Function for exponentiation using pow()
+double exponentiation(double a, double b) {
+    return pow(a, b);
+}
+
+// Function to display the menu
+void displayMenu() {
+    cout << "\n" << string(28, '=') << endl;
+    cout << "     SIMPLE CALCULATOR" << endl;
+    cout << string(28, '=') << endl;
+    cout << "1. Addition" << endl;
+    cout << "2. Subtraction" << endl;
+    cout << "3. Multiplication" << endl;
+    cout << "4. Division" << endl;
+    cout << "5. Modulus" << endl;
+    cout << "6. Exponentiation" << endl;
+    cout << "7. Quit" << endl;
+    cout << string(28, '=') << endl;
+}
+
+// Main function
+int main() {
+    cout << "=== CALCULATOR STARTED ===" << endl;
+    
+    int choice;
+    double first, second;
+    double result;
+    
+    while (true) {
+        displayMenu();
+        cout << "Select an operation (1-7): ";
+        cin >> choice;
+        
+        // Handle quit option
+        if (choice == 7) {
+            cout << "Goodbye!" << endl;
+            break;
+        }
+        
+        // Handle invalid choices
+        if (choice < 1 || choice > 7) {
+            cout << "Error: Invalid choice. Please select 1-7." << endl;
+            continue;
+        }
+        
+        // Get input numbers
+        cout << "Enter first number : ";
+        cin >> first;
+        cout << "Enter second number: ";
+        cin >> second;
+        
+        // Perform the selected operation
+        if (choice == 1) {
+            result = addition(first, second);
+            cout << fixed << setprecision(2);
+            cout << "Result: " << first << " + " << second << " = " << result << endl;
+        } 
+        else if (choice == 2) {
+            result = subtraction(first, second);
+            cout << fixed << setprecision(2);
+            cout << "Result: " << first << " - " << second << " = " << result << endl;
+        } 
+        else if (choice == 3) {
+            result = multiplication(first, second);
+            cout << fixed << setprecision(2);
+            cout << "Result: " << first << " * " << second << " = " << result << endl;
+        } 
+        else if (choice == 4) {
+            result = division(first, second);
+            if (second != 0) {  // Only print if division was successful
+                cout << fixed << setprecision(2);
+                cout << "Result: " << first << " / " << second << " = " << result << endl;
+            }
+        } 
+        else if (choice == 5) {
+            int intFirst = (int)first;
+            int intSecond = (int)second;
+            int resultInt = ::modulus(intFirst, intSecond);
+            if (intSecond != 0) {  // Only print if modulus was successful
+                cout << "Result: " << intFirst << " % " << intSecond << " = " << resultInt << endl;
+            }
+        } 
+        else if (choice == 6) {
+            result = exponentiation(first, second);
+            cout << fixed << setprecision(2);
+            cout << "Result: " << first << " ^ " << second << " = " << result << endl;
+        }
+    }
+    
+    return 0;
+}
