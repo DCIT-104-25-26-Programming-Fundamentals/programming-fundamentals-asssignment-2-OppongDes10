@@ -57,3 +57,61 @@
 #include <iostream>
 using namespace std;
 
+void singleTable(int number) {
+    if (number <= 0) {
+        cout << "Error: Number must be a positive integer." << endl;
+        return;
+    }
+    
+    cout << "\nMultiplication Table for " << number << ":" << endl;
+    for (int i = 1; i <= 12; i++) {
+        cout << number << "  x  " << i << "  =  " << (number * i) << endl;
+    }
+}
+
+void tablesUpToN(int n) {
+    if (n <= 0) {
+        cout << "Error: Number must be a positive integer." << endl;
+        return;
+    }
+    
+    for (int num = 1; num <= n; num++) {
+        cout << "\nMultiplication Table for " << num << ":" << endl;
+        for (int i = 1; i <= 12; i++) {
+            cout << num << "  x  " << i << "  =  " << (num * i) << endl;
+        }
+        
+        if (num < n) {
+            cout << "---------------------------" << endl;
+        }
+    }
+}
+
+int main() {
+    cout << "=== MULTIPLICATION TABLE GENERATOR ===" << endl;
+    
+    cout << "\nPART A — Single Table" << endl;
+    int num;
+    cout << "Enter a number: ";
+    cin >> num;
+    
+    if (num <= 0) {
+        cout << "Error: Number must be a positive integer." << endl;
+    } else {
+        singleTable(num);
+    }
+    
+    cout << "\n" << string(50, '=');
+    cout << "\nPART B — Tables from 1 to N" << endl;
+    int n;
+    cout << "Enter a number N: ";
+    cin >> n;
+    
+    if (n <= 0) {
+        cout << "Error: Number must be a positive integer." << endl;
+    } else {
+        tablesUpToN(n);
+    }
+    
+    return 0;
+}
